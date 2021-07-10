@@ -1,0 +1,43 @@
+const usernameForm = document.querySelector("#username");
+const usernameInput = document.querySelector("#username input");
+const userWelcome = document.querySelector("#username + div");
+const userWelcomeSpan = document.querySelector("#username + div span");
+const logoutBtn = document.querySelector("#username + div button");
+const todo = document.querySelector("#todo");
+
+const HIDDEN_KEY = "hidden";
+const USERNAME_KEY = "username";
+
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+function welcome(event) {
+    event.preventDefault();
+    const username = usernameInput.value;
+    localStorage.setItem(USERNAME_KEY, username);
+    usernameForm.classList.add(HIDDEN_KEY);
+    paintWelcome(username);
+}
+
+function paintWelcome(username) {
+    userWelcomeSpan.innerText = `안녕하세요. ${username}여왕님`;
+    userWelcome.classList.remove(HIDDEN_KEY);
+    todo.classList.remove(HIDDEN_KEY);
+}
+
+function logout() {
+    localStorage.removeItem(USERNAME_KEY);
+    usernameForm.classList.remove(HIDDEN_KEY);
+    userWelcome.classList.add(HIDDEN_KEY);
+    todo.classList.add(HIDDEN_KEY);
+}
+
+
+
+if (savedUsername === null) {
+    usernameForm.classList.remove(HIDDEN_KEY);
+    usernameForm.addEventListener("submit", welcome);
+} else {
+    paintWelcome(savedUsername);
+}
+
+logoutBtn.addEventListener("click", logout)
