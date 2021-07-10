@@ -19,7 +19,7 @@ function welcome(event) {
 }
 
 function paintWelcome(username) {
-    userWelcomeSpan.innerText = `안녕하세요. ${username}여왕님`;
+    userWelcomeSpan.innerText = `안녕하세요. ${username}님`;
     userWelcome.classList.remove(HIDDEN_KEY);
     todo.classList.remove(HIDDEN_KEY);
 }
@@ -29,9 +29,8 @@ function logout() {
     usernameForm.classList.remove(HIDDEN_KEY);
     userWelcome.classList.add(HIDDEN_KEY);
     todo.classList.add(HIDDEN_KEY);
+    usernameInput.value = "";
 }
-
-
 
 if (savedUsername === null) {
     usernameForm.classList.remove(HIDDEN_KEY);
