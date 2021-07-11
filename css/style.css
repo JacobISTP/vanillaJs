@@ -49,6 +49,11 @@ body{
     border-radius: 20px;
 }
 
+#main div:first-child:hover{
+    background-color: rgba(0, 0, 0, 0.85);
+    transition: background-color 0.3s ease-in-out;
+}
+
 #clock{
     font-size: 150px;
     color: whitesmoke;
