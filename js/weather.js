@@ -3,7 +3,7 @@ function onGeoSuccess(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     const API_KEY = "cb4d0856a2396ac73e311d051a8d03be";
-    const url = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric `;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric `;
     fetch(url).then(response => response.json()).then((data) => {
         const city = document.querySelector("#weather span:first-child");
         const temp = document.querySelector("#weather span:nth-child(2)");
