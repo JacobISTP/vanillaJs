@@ -1,8 +1,8 @@
 const usernameForm = document.querySelector("#username");
 const usernameInput = document.querySelector("#username input");
-const userWelcome = document.querySelector("#username + div");
-const userWelcomeSpan = document.querySelector("#username + div span");
-const logoutBtn = document.querySelector("#username + div button");
+const userWelcome = document.querySelector("#welcome");
+const userWelcomeSpan = document.querySelector("#welcome span");
+const logoutBtn = document.querySelector("#welcome button");
 const todo = document.querySelector("#todo");
 
 const HIDDEN_KEY = "hidden";
@@ -25,7 +25,8 @@ function paintWelcome(username) {
 }
 
 function logout() {
-    localStorage.removeItem(USERNAME_KEY);
+    localStorage.clear();
+    location.reload();
     usernameForm.classList.remove(HIDDEN_KEY);
     userWelcome.classList.add(HIDDEN_KEY);
     todo.classList.add(HIDDEN_KEY);

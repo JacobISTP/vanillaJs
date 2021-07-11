@@ -6,13 +6,14 @@ let todosArr = [];
 
 const TODOS_KEY = "todosArr";
 
-function saveTodo(newTodo) {
-    todosArr.push(newTodo);
+function saveTodo() {
     localStorage.setItem(TODOS_KEY, JSON.stringify(todosArr));
 }
 
 function deleteTodo(event) {
     const li = event.target.parentElement;
+    todosArr = todosArr.filter(item => item.id !== parseInt(li.id));
+    saveTodo();
     li.remove();
 }
 
@@ -24,7 +25,7 @@ function addTodo(newTodo) {
     li.appendChild(removeBtn);
     li.id = newTodo.id;
     span.innerText = newTodo.text;
-    removeBtn.innerText = "❌";
+    removeBtn.innerText = "X";
     removeBtn.addEventListener("click", deleteTodo);
     todoUl.appendChild(li);
 }
@@ -37,8 +38,9 @@ function handleTodo(event) {
         text: newTodo,
         id: Date.now(),
     }
+    todosArr.push(newTodoObj);
     addTodo(newTodoObj);
-    saveTodo(newTodoObj);
+    saveTodo();
 }
 
 todoForm.addEventListener("submit", handleTodo);

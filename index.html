@@ -8,19 +8,30 @@
     <title>Document</title>
 </head>
 <body>
-    <span id="clock">00:00:00</span>
-    <form id="username" class="hidden">
-        <input required type="text" maxlength="15" placeholder="이름을 알려주세요.">
-    </form>
-    <div class="hidden">
+    <div id="weather">
         <span></span>
-        <button id="logout">❌</button>
+        <span></span>
+        <span></span>
     </div>
-    <form id="todo" class="hidden">
-        <input required placeholder="해야할 일을 입력해주세요.">
-    </form>
-    <ul id="todos"></ul>
-
+    <div id="main">
+        <div>
+            <span id="clock">00:00:00</span>
+            <form id="username" class="hidden">
+                <input required type="text" maxlength="15" placeholder="이름을 알려주세요.">
+            </form>
+            <div class="hidden" id="welcome">
+                <span></span>
+                <button id="logout">X</button>
+            </div>
+        </div>
+        <div>
+            <form id="todo" class="hidden">
+                <input required placeholder="해야할 일을 입력해주세요.">
+            </form>
+            
+            <ul id="todos"></ul>
+        </div>
+    </div>
     <div id="quotes">
         <span></span><span></span>
     </div>
@@ -29,5 +40,7 @@
     <script src="js/clock.js"></script>
     <script src="js/quote.js"></script>
     <script src="js/todo.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/style.js"></script>
 </body>
 </html>
